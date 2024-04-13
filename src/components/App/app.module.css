@@ -1,0 +1,49 @@
+.app {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+.form {
+	margin: 0 auto;
+	max-width: 350px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+
+	border: 1px solid #00ff00;
+	border-radius: 15px;
+}
+
+.error {
+	color: red;
+}
+
+.btn {
+	padding: 10px;
+	border-radius: 10px;
+	background-color: transparent;
+	align-self: center;
+}
+
+.btn:disabled {
+	pointer-events: none;
+}
+
+.btn:focus {
+	border: 2px solid #00ff00;
+	outline: none;
+	background-color: #00ff00;
+	color: #242424;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.btn:active {
+	transform: scale(0.9);
+}
