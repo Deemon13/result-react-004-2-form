@@ -1,8 +1,8 @@
 {
-	"name": "result-react-004-2-form-with-libs",
+	"name": "result-react-004-2-form",
 	"private": true,
 	"version": "0.0.0",
-	"homepage": "https://Deemon13.github.io/result-react-004-2-form-with-libs",
+	"homepage": "https://Deemon13.github.io/result-react-004-2-form",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
