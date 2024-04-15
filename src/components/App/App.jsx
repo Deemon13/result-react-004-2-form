@@ -1,16 +1,31 @@
 import { useEffect, useRef, useState } from 'react';
+import * as yup from 'yup';
 import styles from './app.module.css';
 import { InputField } from '../../components';
 
 import { useStore } from '../../hooks';
+import { useForm } from 'react-hook-form';
+
+const REG_EMAIL = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
 
 const sendFormData = formData => {
 	console.log(formData);
 };
 
-const REG_EMAIL = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
+const fieldsSchema = yup.object().shape({
+	email: yup.string().matches(REG_EMAIL, 'Invalid email'),
+	password: yup
+		.string()
+		.min(6, 'Required less then 6 symbols')
+		.max(20, 'Password too long, required 20 symbols'),
+	checkPassword: yup
+		.string()
+		.oneOf([yup.ref('password'), null], 'Password are not equal'),
+});
 
 export const App = () => {
+	const {} = useForm();
+
 	const { getState, updateState, resetState } = useStore();
 	const { email, password, checkPassword } = getState();
 
@@ -46,7 +61,7 @@ export const App = () => {
 		setError(errorMsg);
 	};
 
-	const handleSubmit = event => {
+	const onSubmit = event => {
 		event.preventDefault();
 		sendFormData(getState());
 		resetState();
